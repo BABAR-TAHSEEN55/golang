@@ -6,7 +6,7 @@ import (
 )
 
 // NOTE : You can change the key pair by using `json:"anynameyouwant"`
-//NOTE: : And using "-" in password hidews it
+// NOTE: : And using "-" in password hidews it
 type course struct {
 	Name     string
 	Price    string
@@ -18,7 +18,8 @@ type course struct {
 func main() {
 
 	fmt.Println("Welcome to Handling JSON")
-	EncodeJSON()
+	// EncodeJSON()
+	DecodeJSON()
 }
 func EncodeJSON() {
 	NewJSON := []course{
@@ -45,3 +46,25 @@ func EncodeJSON() {
 	fmt.Printf("%s\t", finalJSON)
 
 }
+func DecodeJSON() {
+	JsonFromWeb := []byte(`
+        {
+                "Name": "React",
+                "Price": "199",
+                "Platform": "www.youtube.com",
+                "tags": ["Render"]
+        }
+	`)
+
+	var StoreJson course
+	CheckValid := json.Valid(JsonFromWeb)
+	if CheckValid {
+		fmt.Println("Json Is Valid")
+		json.Unmarshal(JsonFromWeb, &StoreJson)
+		fmt.Printf("%#v", StoreJson) // FOr printing this interface you gotta use %#v
+	} else {
+		fmt.Println("JSON was not Valid")
+
+	}
+}
+//TODO : Do a Map 
