@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"io"
+	// "io"
 	"net/http"
 )
 
@@ -13,12 +13,18 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
+	if res.StatusCode < 400 {
+		fmt.Println("Valid :")
+	} else {
+		fmt.Println("Invalid")
+	}
 	defer res.Body.Close()
 	fmt.Println("Response : \n", res.Status)
-	databyte, err := io.ReadAll(res.Body)
-	if err != nil {
-		panic(err)
-	}
-	fmt.Println(string(databyte))
+	// databyte, err := io.ReadAll(res.Body)
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// fmt.Println(string(databyte))
 
 }

@@ -70,8 +70,7 @@ func GetOneCourse(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Get Specific Course")
 	params := mux.Vars(r) // Getting ID from the URL
 	for _, course := range Courses {
-		if course.CourseId == params["id"] {
-			json.NewEncoder(w).Encode(course)
+		if course.CourseId == params["id"] { json.NewEncoder(w).Encode(course)
 			return
 		}
 	}

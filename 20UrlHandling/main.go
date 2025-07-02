@@ -14,6 +14,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	fmt.Println("Url HOst : ", result.Host)
 	fmt.Println(result.Scheme)
 	fmt.Println(result.User)
 	fmt.Println(result.User.Password())
