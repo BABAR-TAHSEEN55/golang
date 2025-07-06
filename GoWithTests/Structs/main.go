@@ -1,5 +1,10 @@
 package main
 
+import "math"
+
+type Shape interface {
+	Area() float64
+}
 type Rectangle struct {
 	width  float64
 	length float64
@@ -8,12 +13,12 @@ type Circle struct {
 	radius float64
 }
 
-func CalculatePerimeter(rectangle Rectangle) float64 {
-	return 2 * (rectangle.length + rectangle.width)
+func (r Rectangle) Area() float64 {
+	return r.width * r.length
 
 }
-func CalculateArea(rectangle Rectangle) float64 {
-	return rectangle.length * rectangle.width
+func (c Circle) Area() float64 {
+	return math.Pi * c.radius * c.radius
 }
 func main() {
 
