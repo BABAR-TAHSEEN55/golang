@@ -61,3 +61,4 @@ func assertNoError(t testing.TB, got error) {
 //2) T -> Is used for Unit Testing
 //3) B-> Is used for Benchmark (Iteraions b.N etc)
 //4) t.helper() is used for quick & ez debugging
+//TODO : Handles  error gracefully article
